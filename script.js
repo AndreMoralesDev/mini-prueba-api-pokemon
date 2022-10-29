@@ -23,13 +23,13 @@ async function loadPokemon(url) {
         console.log(json)
         if (json.previous) {
             $prevLink.style.display = "inline-block";
-            $prevLink.setAttribute("href", json.previous)
+            $prevLink.setAttribute("link", json.previous)
         } else {
             $prevLink.style.display = "none";
         }
         if (json.next) {
             $nextLink.style.display = "inline-block";
-            $nextLink.setAttribute("href", json.next)
+            $nextLink.setAttribute("link", json.next)
         } else {
             $nextLink.style.display = "none";
         }
@@ -53,7 +53,7 @@ async function loadPokemon(url) {
     } catch (err) {
         console.log(err)
         let message = err.statusText || "Ocurrió un error";
-        $main.innerHTML = `<p>Error ${err.status}: ${message}</p>`;
+        $cardsContainer.innerHTML = `<p>Error ${err.status}: ${message}</p>`;
     } finally {
         $loader.style.display = "none";
     }
@@ -63,8 +63,7 @@ d.addEventListener("DOMContentLoaded", e => loadPokemon(pokeAPI));
 
 d.addEventListener("click", e => {
     if (e.target.matches(".nav-btn")) {
-        e.preventDefault()
-        loadPokemon(e.target.href)
+        e.preventDefault();
+        loadPokemon(e.target.getAttribute("link"));
     }
 })
-

@@ -50,6 +50,10 @@ h1 {
 .nav-btn {
     font-size: clamp(1.6rem, 1.4rem + 1vw, 2.5rem);
     color: #fff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .content-container {
