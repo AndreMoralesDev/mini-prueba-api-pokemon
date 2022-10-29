@@ -20,7 +20,6 @@ async function loadPokemon(url) {
         let json = await res.json(),
             $prevLink = d.getElementById("prev-btn"),
             $nextLink = d.getElementById("next-btn");
-        console.log(json)
         if (json.previous) {
             $prevLink.style.display = "inline-block";
             $prevLink.setAttribute("link", json.previous)
